@@ -239,7 +239,7 @@ Con la configuraci\'on elegida (elitismo, 50 iteraciones, $P_m=0.05$, $\sigma_m=
 \item La mutaci\'on modifica solo un gen por individuo, lo que en 100 dimensiones es una perturbaci\'on m\'inima.
 \item La configuraci\'on se ajust\'o en $d=3$, donde el problema es f\'acil.
 \end{enumerate}
-El tiempo creci\'o poco (de 2 a 7~ms) porque la evaluaci\'on de Ackley est\'a vectorizada. Por lo tanto, tendr\'ia sentido aumentar el tama\~no de la poblaci\'on y el n\'umero de iteraciones para problemas de alta dimensi\'on. Los individuos completos de este estudio se incluyen como archivo anexo (\texttt{estudio4\_mejores\_individuos.csv}).
+El tiempo creci\'o poco (de 2 a 7~ms) porque la evaluaci\'on de Ackley est\'a vectorizada. Por lo tanto, tendr\'ia sentido aumentar el tama\~no de la poblaci\'on y el n\'umero de iteraciones para problemas de alta dimensi\'on. Los individuos completos de este estudio est\'an en el archivo \texttt{estudio4\_mejores\_individuos.csv} del repositorio.
 
 \begin{figure}[!t]
 \centering
@@ -258,6 +258,10 @@ El tiempo creci\'o poco (de 2 a 7~ms) porque la evaluaci\'on de Ackley est\'a ve
 \item El cruce aritm\'etico permiti\'o manejar la restricci\'on de igualdad del problema de inventarios sin penalizaciones, ya que conserva la factibilidad por construcci\'on.
 \item El AG encontr\'o el recorrido \'optimo del viajero (509~min, verificado con Held-Karp) en el 40\,\% de las ejecuciones, pero su exactitud en Ackley cae con la dimensi\'on si no se escalan la poblaci\'on, las iteraciones y la mutaci\'on. Esto confirma que la configuraci\'on de un AG debe ajustarse a cada problema y que su evaluaci\'on exige m\'ultiples ejecuciones y an\'alisis estad\'istico.
 \end{itemize}
+
+% =====================================================================
+\section*{Anexo: c\'odigos}
+Los c\'odigos en MATLAB, los resultados de los cuatro estudios y los archivos fuente de este informe est\'an disponibles en el repositorio \url{https://github.com/upfernan/algoritmo-genetico}. Para reproducir los resultados se ejecutan, en este orden, \texttt{pruebas}, \texttt{experimentos(1)} a \texttt{experimentos(4)} y \texttt{generar\_salidas} desde la carpeta \texttt{codigo}.
 
 % =====================================================================
 \begin{thebibliography}{99}
@@ -279,43 +283,5 @@ El tiempo creci\'o poco (de 2 a 7~ms) porque la evaluaci\'on de Ackley est\'a ve
 \bibitem{larranaga} P. Larra\~naga, C. M. H. Kuijpers, R. H. Murga, I. Inza, and S. Dizdarevic, ``Genetic algorithms for the travelling salesman problem: A review of representations and operators,'' \emph{Artificial Intelligence Review}, vol. 13, no. 2, pp. 129--170, 1999.
 \bibitem{herrera} F. Herrera, M. Lozano, and J. L. Verdegay, ``Tackling real-coded genetic algorithms: Operators and tools for behavioural analysis,'' \emph{Artificial Intelligence Review}, vol. 12, no. 4, pp. 265--319, 1998.
 \end{thebibliography}
-
-% =====================================================================
-\clearpage
-\onecolumn
-\section*{Anexo: c\'odigos en MATLAB}
-\addcontentsline{toc}{section}{Anexo}
-Los archivos se ejecutan en este orden: \texttt{pruebas.m} (verificaci\'on de los componentes) y \texttt{experimentos(1)}, \texttt{experimentos(2)}, \texttt{experimentos(3)}, \texttt{experimentos(4)}; al final, \texttt{generar\_salidas} crea las tablas y figuras.
-
-\subsection*{Funciones objetivo}
-\lstinputlisting[title=f\_viajero.m]{codigo/f_viajero.m}
-\lstinputlisting[title=datos\_viajero.m]{codigo/datos_viajero.m}
-\lstinputlisting[title=viajero\_exacto.m]{codigo/viajero_exacto.m}
-\lstinputlisting[title=f\_ackley.m]{codigo/f_ackley.m}
-\lstinputlisting[title=f\_inventario.m]{codigo/f_inventario.m}
-\lstinputlisting[title=datos\_inventario.m]{codigo/datos_inventario.m}
-\subsection*{Poblaciones iniciales}
-\lstinputlisting[title=pob\_viajero.m]{codigo/pob_viajero.m}
-\lstinputlisting[title=pob\_ackley.m]{codigo/pob_ackley.m}
-\lstinputlisting[title=pob\_inventario.m]{codigo/pob_inventario.m}
-\subsection*{Selecci\'on}
-\lstinputlisting[title=sel\_elitismo.m]{codigo/sel_elitismo.m}
-\lstinputlisting[title=sel\_torneo.m]{codigo/sel_torneo.m}
-\lstinputlisting[title=sel\_ruleta.m]{codigo/sel_ruleta.m}
-\subsection*{Cruce}
-\lstinputlisting[title=cruce\_ox.m]{codigo/cruce_ox.m}
-\lstinputlisting[title=cruce\_blx.m]{codigo/cruce_blx.m}
-\lstinputlisting[title=cruce\_aritmetico.m]{codigo/cruce_aritmetico.m}
-\subsection*{Mutaci\'on}
-\lstinputlisting[title=mut\_viajero.m]{codigo/mut_viajero.m}
-\lstinputlisting[title=mut\_ackley.m]{codigo/mut_ackley.m}
-\lstinputlisting[title=mut\_inventario.m]{codigo/mut_inventario.m}
-\subsection*{Algoritmo gen\'etico y experimentos}
-\lstinputlisting[title=definir\_problema.m]{codigo/definir_problema.m}
-\lstinputlisting[title=algoritmo\_genetico.m]{codigo/algoritmo_genetico.m}
-\lstinputlisting[title=correr\_escenario.m]{codigo/correr_escenario.m}
-\lstinputlisting[title=experimentos.m]{codigo/experimentos.m}
-\lstinputlisting[title=pruebas.m]{codigo/pruebas.m}
-\lstinputlisting[title=generar\_salidas.m]{codigo/generar_salidas.m}
 
 \end{document}
