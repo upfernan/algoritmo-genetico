@@ -1,0 +1,13 @@
+# Configuracion local de Visual Studio Code (tiene rutas de este computador)
+.vscode/
+
+# Archivos temporales de LaTeX
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Paquete para Overleaf (copia de la carpeta informe)
+informe_overleaf.zip
